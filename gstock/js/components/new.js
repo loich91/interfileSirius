@@ -11,8 +11,7 @@ const New = {
         Name : 
         <input v-model="prod.name" type="text" placeholder="Add Product Name  "><br>
     
-        Ref. : 
-        <input v-model="prod.ref" type="text" placeholder="Add Product Reference "><br>
+
         Description:
       
         <input v-model="prod.description" type="text" placeholder="Add description "><br>
@@ -53,8 +52,16 @@ const New = {
             //{}= un objet
             message: '',
             id: null,
-            error: null
+            error: null,
+            idCaterogie:null,
+            nameCategorie:'',
         }
+    },
+
+    created() {
+        // fetch the data when the view is created and the data is
+        // already being observed
+        this.obtenir();
     },
 
     watch: {
@@ -62,6 +69,21 @@ const New = {
         '$route': 'insertProduct'
     },
     methods: {
+
+        obtenir(){
+
+            axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => {
+                console.log(response.data);
+            
+                // this.prods = response.data.products;
+                //remplacer le .products par ce que  Anthony&compagnie va nous renvoyer URL API//
+                // .products qu on recupere dans API de Ludo//
+
+            });
+
+
+
+        },
 
         insertProduct() {
             const params = new URLSearchParams();
@@ -73,7 +95,7 @@ const New = {
             params.append('purschase_price', this.prod.price);
 
 
-            axios.post('http://files.sirius-school.be/products-api/?action=insertProduct', params).then(response => {
+            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V2.php', params).then(response => {
                 console.log(response);
                 this.loading = false;
 
