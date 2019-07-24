@@ -1,0 +1,14 @@
+ methods: {
+      postDay(){
+        let params = new URLSearchParams();
+        params.append('day', this.currentDay);
+
+          axios.post(urlApi, params).then(response => {
+              
+              this.temperatureMin = response.data.weather.temperature.min;
+              this.temperatureMax = response.data.weather.temperature.max;
+              this.typeOfWeather = response.data.weather.typeOfWeather;
+              this.windSpeed = response.data.weather.windSpeed;
+              
+        })
+      },

@@ -1,0 +1,119 @@
+const qpuc = { /*definition de la route   */
+    template:/* tapper du code comme en Html  */
+
+        `
+        <div class="m-contact">   
+                <div>
+                    {{ identifiant }}: {{ question }} <!-- les variables peuvent être afficher directement en vuejs en html -->
+                </div>
+                <div>
+                    
+                    <input v-model="reponseUtilisateur" placeholder="ecrivez votre reponse ">
+                    <!--zone de texte qui permet de stockée la réponse utilisateur-->
+                    <button v-on @click="reponse">Sauver</button>
+                    <!--clique sur le bouton activation de la méthode-->
+                    
+                
+                
+                </div>
+                <div>
+                reponse correct {{correct}} | reponse incorrect {{incorrect}} 
+                <!--envoi des point via les compteurs correct et incorrect-->
+                </div>
+                <div>
+                    
+                    {{message}}
+
+                </div>
+            
+        </div>    
+            
+            `,
+
+    data() { /* definition des variable c'est dans data qu'on stocke les variable */
+        return {
+
+            /* On est dans une fonction, donc on utilise le mot clé return pour renvoyer l'objet */
+            identifiant: null,
+            question: '',
+            reponseUtilisateur: '',
+            correct: 0,
+            incorrect: 0,
+            message:''
+
+        }
+
+    },
+
+
+    created() { /* est appelée par la vue dès que celle-ci est créée de disponible, 
+                    Cela va nous permettre d'appeler directement certaine méthode qui doivent être
+                    appelée automatiquement*/
+        this.questionDemande()
+
+    },
+
+
+    methods: { /* liste des fonctions/methodes permettant le bon fonctionnement d'un programme */
+
+
+        questionDemande() {
+            /* axios permet d'effectuer des appels HTTP, le then est appelé quand on obtient la réponse */
+            axios.get('https://files.sirius-school.be/qpuc/?action=getQuestion').then(response => {
+                /*commande permettant d'afficher la structure de l'objetde l'api de la on peut les stockées dans nos variable */
+                console.log(response)
+                /*permet d'afficher dans le journal une variable ou un élément d'une variable PHP 
+                commande f12
+                */
+
+                console.log(response.data)
+                this.identifiant = response.data.id;
+                /*important en vuejs il est important de pointé la valeur avec this */
+                /* la structure axios est nomDeLaVariable avec un objet data qui contient l'ensemble des données retournées par l'API */
+                /*pour stocké les variable en dur sur les variables c'est le symbole =  */
+                /*le double égale == c'est une comparaison */
+                this.question = response.data.question;
+            }) /*attention l'indentation est importante pour comprendre d'un autre*/
+        },
+
+        reponse() {
+            const params = new URLSearchParams();
+
+            /* définition de la constante params cette constante permet de définir les variables "post" envoyée à l'API*/
+            params.append('id', this.identifiant);
+            /*ajouté a la constante params ('id', this.variable) 'id' est la variable envoyé par l'api
+            this.variable celle a envoyé
+            */
+
+            params.append('response', this.reponseUtilisateur);
+            axios.post('https://files.sirius-school.be/qpuc/?action=postResponse', params).then(response => {
+                /*la commande post permet l'envoie de valeur vers l'api de la retour */
+                if (response.data.correct == true) {
+                    /*comme expliqué plus haut le double égale egale est une comparaison */
+
+                    /* correct égal a true ou a false 
+                        valeur renvoyé dans l'api 
+
+                        si la valeur renvoyé par l'api est true alors on affiche bonne réponse
+
+                        et on ajoute 1 a la variable correct
+                    
+                    */
+
+                    this.message = 'bonne réponse';
+                    this.correct++
+                }
+                else {
+                    this.message = 'réponse fausse';
+                    /*sinon si la valeur égal a faux on affiche le message réponse fausse 
+                    et on ajoute 1 a la variable incorrect
+                    */
+                    this.incorrect++
+                }
+
+                this.questionDemande();
+                /*la fonction défini plus haut est appelé pour évité de retapé le même code plusieurs fois*/
+            })
+        }
+    }
+}
