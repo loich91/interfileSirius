@@ -1,0 +1,88 @@
+/*main*/
+
+body {
+
+    margin: 25;
+    padding: 25;
+    /*background-image:url('images/image1.jpg');*/
+}
+
+ul{
+    padding-left: 25;
+  
+}
+
+h1{ font-family: 'Gugi', cursive;
+   color : rgb(240, 230, 230);
+   
+   background: rgb(218, 193, 198);
+ 
+}
+#couleurLi{
+    font-size: 150%;
+    color: darkolivegreen;
+  
+    background-color: rgb(192, 138, 150);
+ 
+
+    font-weight: bold;
+
+   
+}
+#back{
+    color:red;
+   
+}
+
+#view{
+    color : rgb(240, 230, 230);
+   
+}
+#up{
+    color : rgb(240, 230, 230)
+ 
+}
+#del{
+    color : rgb(240, 230, 230)
+}
+#button{
+    font-weight: bold;
+    color:darkolivegreen;
+    background-color:aquamarine
+
+}
+#modifbutton{
+    font-weight: bold;
+    color:darkolivegreen;
+    background-color:aquamarine
+
+
+}
+#deletebutton{
+    font-weight: bold;
+    color:darkolivegreen;
+    background-color:aquamarine
+
+}
+h2{color : rgb(240, 230, 230);
+   
+    background: rgb(163, 123, 131);
+  
+ }
+ #menuprods{
+    font-size: 120%;
+     color:goldenrod
+     
+
+ }
+
+ #menunew{
+    color:goldenrod
+
+ }
+ img{
+   
+padding: 50px;
+     width: 50%
+ }
+

@@ -1,0 +1,86 @@
+let urlApi = 'http://files.sirius-school.be/weather-api/'
+
+let app = new Vue({
+    el: '#app',
+    data: {
+      jourMin:1,
+      jourMax:7,
+      currentDay:1,
+      weatherDay:null,
+      temperatureMin:null,
+      temperatureMax:null,
+      typeOfWeather:'',
+      windSpeed:'',
+      number:null
+
+    },
+
+    created() {
+      this.postDay()
+    },
+
+    methods: {
+      postDay(){
+        let params = new URLSearchParams();
+        params.append('day', this.currentDay);
+
+          axios.post(urlApi, params).then(response => {
+              
+              this.temperatureMin = response.data.weather.temperature.min;
+              this.temperatureMax = response.data.weather.temperature.max;
+              this.typeOfWeather = response.data.weather.typeOfWeather;
+              this.windSpeed = response.data.weather.windSpeed;
+              
+        })
+      },
+
+      previousDay(){
+
+        if(this.currentDay >= 2) {
+          this.currentDay -= 1;
+          let params = new URLSearchParams();
+          params.append('day', this.currentDay);
+
+          axios.post(urlApi, params).then(response => {
+              
+              this.temperatureMin = response.data.weather.temperature.min;
+              this.temperatureMax = response.data.weather.temperature.max;
+              this.typeOfWeather = response.data.weather.typeOfWeather;
+              this.windSpeed = response.data.weather.windSpeed;
+        })
+
+
+        }
+
+      },
+
+      nextDay(){
+        if(this.currentDay <= 6) {
+        this.currentDay += 1;
+        let params = new URLSearchParams();
+        params.append('day', this.currentDay);
+
+          axios.post(urlApi, params).then(response => {
+              
+              this.temperatureMin = response.data.weather.temperature.min;
+              this.temperatureMax = response.data.weather.temperature.max;
+              this.typeOfWeather = response.data.weather.typeOfWeather;
+              this.windSpeed = response.data.weather.windSpeed;
+      })
+    }
+    },
+      /*  getDay(){
+          params.append('day', this.days[i++]
+          );
+          axios.post(urlApi, params).then(response => {
+              
+              this.temperatureMin = response.data.weather.temperature.min;
+              this.temperatureMax = response.data.weather.temperature.max;
+              this.typeOfWeather = response.data.weather.typeOfWeather;
+              this.windSpeed = response.data.weather.windSpeed;
+          })
+        },*/
+
+    },
+
+});
