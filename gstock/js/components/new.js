@@ -17,7 +17,7 @@ const New = {
         <input v-model="prod.description" type="text" placeholder="Add description "><br>
         Qty : 
         
-         <input v-model="prod.qty " type="text" placeholder="Add Product Qty "><br>
+         <input v-model="prod.quantity " type="text" placeholder="Add Product Qty "><br>
          
          Category:
          <div>
@@ -96,19 +96,19 @@ const New = {
             params.append('description', this.prod.description);
             params.append('name', this.prod.name);
             params.append('quantity', this.prod.quantity);
-            params.append('sale_price', this.prod.price);
-            params.append('purchase_price', this.prod.price);
+            params.append('sale_price', this.prod.salesPrice);
+            params.append('purchase_price', this.prod.purchasePrice);
 
 
-            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V2.php', params).then(response => {
-                console.log(response);
+            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response => {
+                console.log(response.data);
                 this.loading = false;
 
-                if (response.data.status == 'success') {
-                    this.message = 'produit ajouté';
+                if (response.data.error =='false') {
+                    this.message = 'réussi';
                 }
                 else {
-                    this.message = 'Désolé impossible';
+                    this.message = 'ça merde';
                 }
 
                 //console.log(this.prod);//

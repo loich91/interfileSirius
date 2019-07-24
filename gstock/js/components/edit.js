@@ -11,8 +11,18 @@ const Edit = {
         IdProduit:<input type="text" v-model= "prod.id_product" ><br>
         Name : 
         <input type="text"v-model="prod.name" ><br>
-        Ref. : 
-        <input type="text" v-model="prod.ref"  ><br>
+
+
+        description : 
+        <input type="text" v-model="prod.description"  ><br>
+
+        Category:
+         <div>
+         <select  v-model="id_category">
+
+         <option v-for="categorie in categories" v-bind:value="categorie.id_category"  >{{categorie.name_category}}</option>
+        </div>
+        
         Qty : 
         
          <input type="text" v-model="prod.qty" ><br>
@@ -36,14 +46,16 @@ const Edit = {
             //{}= un objet
             message: '',
             id: null,
-            error: null
+            error: null,
+            categories:{},
+            id_category:null,
         }
     },
     created() {
         // fetch the data when the view is created and the data is
         // already being observed
         this.fetchData();
-        this.updateProduct();
+        
     },
 
     watch: {
@@ -51,6 +63,23 @@ const Edit = {
         '$route': 'fetchData'
     },
     methods: {
+        obtenir(){
+
+            axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => {
+                console.log(response.data);
+                this.categories=response.data;
+                // this.prods = response.data.products;
+                //remplacer le .products par ce que  Anthony&compagnie va nous renvoyer URL API//
+                // .products qu on recupere dans API de Ludo//
+
+            });
+
+
+
+        },
+
+
+
         fetchData() {
             const params = new URLSearchParams();
             params.append('id', this.$route.params.id);
