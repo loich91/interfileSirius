@@ -6,8 +6,8 @@
 const Prod = {
     template: `
     <div class="detail">
-    <h1>xxx Détails n° {{ $route.params.id }} xxx</h1>
-    <router-link to="/" id= back>Go Back to List</router-link><br>
+    <h1> Détails du produit n° {{ $route.params.id }} </h1>
+    <router-link to="/" id= back>Retour</router-link><br>
     
     <p v-if="prod">
     <h2>
@@ -45,7 +45,9 @@ methods: {
         const params = new URLSearchParams();
         params.append('id', this.$route.params.id);
       
-        axios.post('http://files.sirius-school.be/products-api/?action=getDetail', params).then(response => {
+                    //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
+                    axios.post('http://localhost/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
+                {
             // console.log(response);
             this.loading = false;
             this.prod = response.data.product;

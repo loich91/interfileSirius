@@ -11,18 +11,8 @@ const Edit = {
         IdProduit:<input type="text" v-model= "prod.id_product" ><br>
         Name : 
         <input type="text"v-model="prod.name" ><br>
-
-
-        description : 
-        <input type="text" v-model="prod.description"  ><br>
-
-        Category:
-         <div>
-         <select  v-model="id_category">
-
-         <option v-for="categorie in categories" v-bind:value="categorie.id_category"  >{{categorie.name_category}}</option>
-        </div>
-        
+        Ref. : 
+        <input type="text" v-model="prod.ref"  ><br>
         Qty : 
         
          <input type="text" v-model="prod.qty" ><br>
@@ -46,16 +36,14 @@ const Edit = {
             //{}= un objet
             message: '',
             id: null,
-            error: null,
-            categories:{},
-            id_category:null,
+            error: null
         }
     },
     created() {
         // fetch the data when the view is created and the data is
         // already being observed
         this.fetchData();
-        
+        this.updateProduct();
     },
 
     watch: {
@@ -63,23 +51,6 @@ const Edit = {
         '$route': 'fetchData'
     },
     methods: {
-        obtenir(){
-
-            axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => {
-                console.log(response.data);
-                this.categories=response.data;
-                // this.prods = response.data.products;
-                //remplacer le .products par ce que  Anthony&compagnie va nous renvoyer URL API//
-                // .products qu on recupere dans API de Ludo//
-
-            });
-
-
-
-        },
-
-
-
         fetchData() {
             const params = new URLSearchParams();
             params.append('id', this.$route.params.id);
@@ -102,7 +73,8 @@ const Edit = {
             params.append('price', this.prod.price);
             params.append('id', this.$route.params.id);
 
-            axios.post('http://files.sirius-school.be/products-api/?action=updateProduct', params).then(response => {
+            //axios.get('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>
+            axios.get('http://localhost/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response => {
                 console.log(response);
                 this.loading = false;
 

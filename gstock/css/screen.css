@@ -1,10 +1,29 @@
 /*main*/
 
 body {
-
+    font-family: calibri, bold;
     margin: 25;
     padding: 25;
+    background-color: #424a4e
     /*background-image:url('images/image1.jpg');*/
+    
+}
+
+
+
+
+
+
+.table-product-header {
+    background: lightgrey;
+}
+
+.table-product-line {
+    background: white;
+}
+
+tr:nth-child(even){
+    background-color: lightskyblue
 }
 
 ul{
@@ -12,10 +31,10 @@ ul{
   
 }
 
-h1{ font-family: 'Gugi', cursive;
-   color : rgb(240, 230, 230);
+h1{ font-family: 'Calibri Bold', cursive;
+   color : black
    
-   background: rgb(218, 193, 198);
+   background: darkblue;
  
 }
 #couleurLi{
@@ -35,15 +54,15 @@ h1{ font-family: 'Gugi', cursive;
 }
 
 #view{
-    color : rgb(240, 230, 230);
+    color : black;
    
 }
 #up{
-    color : rgb(240, 230, 230)
+    color : black
  
 }
 #del{
-    color : rgb(240, 230, 230)
+    color :black
 }
 #button{
     font-weight: bold;
@@ -66,18 +85,18 @@ h1{ font-family: 'Gugi', cursive;
 }
 h2{color : rgb(240, 230, 230);
    
-    background: rgb(163, 123, 131);
+    background: lightblue;
   
  }
  #menuprods{
     font-size: 120%;
-     color:goldenrod
+     color:white
      
 
  }
 
  #menunew{
-    color:goldenrod
+    color:white
 
  }
  img{

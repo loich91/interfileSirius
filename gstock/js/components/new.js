@@ -74,9 +74,10 @@ const New = {
     },
     methods: {
 
-        obtenir(){
+        obtenir(){  
 
-            axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => {
+            //axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => 
+            axios.get("http://localhost/travail2/git/gstock/back-end/pages/category.php").then(response => {
                 console.log(response.data);
                 this.categories=response.data;
                 // this.prods = response.data.products;
@@ -99,8 +100,8 @@ const New = {
             params.append('sale_price', this.prod.salesPrice);
             params.append('purchase_price', this.prod.purchasePrice);
 
-
-            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response => {
+            //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response =>
+            axios.post('http://localhost/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response => {
                 console.log(response.data);
                 this.loading = false;
 
