@@ -18,9 +18,13 @@ const New = {
         Qty : 
         
          <input v-model="prod.qty " type="text" placeholder="Add Product Qty "><br>
+         
          Category:
-         <input v-model="prod.category" type="text" placeholder="Add category"><br>
-       
+         <div>
+         <select  v-model="id_category">
+
+         <option v-for="categorie in categories" v-bind:value="categorie.id_category"  >{{categorie.name_category}}</option>
+        </div>
         
        sales Price  €€€ : 
            
@@ -53,8 +57,8 @@ const New = {
             message: '',
             id: null,
             error: null,
-            idCaterogie:null,
-            nameCategorie:'',
+            categories:{},
+            id_category:null,
         }
     },
 
@@ -74,7 +78,7 @@ const New = {
 
             axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => {
                 console.log(response.data);
-            
+                this.categories=response.data;
                 // this.prods = response.data.products;
                 //remplacer le .products par ce que  Anthony&compagnie va nous renvoyer URL API//
                 // .products qu on recupere dans API de Ludo//
@@ -86,13 +90,14 @@ const New = {
         },
 
         insertProduct() {
+            console.log(this.id_category)
             const params = new URLSearchParams();
-
+            params.append('category',this.id_category);
             params.append('description', this.prod.description);
             params.append('name', this.prod.name);
             params.append('quantity', this.prod.quantity);
             params.append('sale_price', this.prod.price);
-            params.append('purschase_price', this.prod.price);
+            params.append('purchase_price', this.prod.price);
 
 
             axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V2.php', params).then(response => {
