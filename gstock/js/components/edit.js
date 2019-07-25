@@ -73,8 +73,8 @@ const Edit = {
             params.append('price', this.prod.price);
             params.append('id', this.$route.params.id);
 
-            //axios.get('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>
-            axios.get('http://localhost/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response => {
+            axios.get('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
+            //axios.get('http://localhost/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response => 
                 console.log(response);
                 this.loading = false;
 

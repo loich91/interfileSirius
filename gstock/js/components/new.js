@@ -23,7 +23,7 @@ const New = {
          <div>
          <select  v-model="id_category">
 
-         <option v-for="categorie in categories" v-bind:value="categorie.id_category"  >{{categorie.name_category}}</option>
+         <option v-for="categorie in categories" v-bind:value="categorie.id_category">{{categorie.name_category}}</option>
         </div>
         
        sales Price  €€€ : 
@@ -76,8 +76,8 @@ const New = {
 
         obtenir(){  
 
-            //axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => 
-            axios.get("http://localhost/travail2/git/gstock/back-end/pages/category.php").then(response => {
+            axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => {
+            //axios.get("http://localhost/travail2/git/gstock/back-end/pages/category.php").then(response => {
                 console.log(response.data);
                 this.categories=response.data;
                 // this.prods = response.data.products;

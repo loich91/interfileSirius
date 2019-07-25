@@ -36,6 +36,7 @@ const Prods = {
             <td>{{ prod.quantity }}</td>
             <td>{{ prod.sale_price }}</td>
             <td>{{prod.purschase_prise}}</td>
+            
             <td>
  
               <router-link :to="{ name: 'edit', params: { id: prod.id_product }}"id=up>Modifier</router-link>
@@ -71,8 +72,8 @@ const Prods = {
     methods: {
         
         fetchData() {
-                //axios.get('http://192.168.1.46/travail2/git/gstock/back-end/index.php').then(response =>
-                axios.get('http://localhost/travail2/git/gstock/back-end/index.php').then(response => {
+                axios.get('http://192.168.1.46/travail2/git/gstock/back-end/index.php').then(response =>{
+                //axios.get('http://localhost/travail2/git/gstock/back-end/index.php').then(response => {
                 console.log(response.data);
                 this.loading = false;
                 this.prods = response.data;

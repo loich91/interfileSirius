@@ -17,8 +17,8 @@ const Prod = {
         Description: {{prod.description}}<br>
         Quantité : {{ prod.quantity }}<br>
         
-        €€€ Sales Price : {{ prod.sale_price }}<br>
-        €€€ Purchase Price:{{prod.purSchase_prise}}<br>
+         Sales Price : {{ prod.sale_price }}<br>
+         Purchase Price:{{prod.purSchase_prise}}<br>
         </h2>
     </p>
     </div>
@@ -45,12 +45,12 @@ methods: {
         const params = new URLSearchParams();
         params.append('id', this.$route.params.id);
       
-                    //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
-                    axios.post('http://localhost/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
+                    axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
+                   // axios.post('http://localhost/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
                 {
             // console.log(response);
             this.loading = false;
-            this.prod = response.data.product;
+            this.prod = response.data;
             console.log(this.prod);
         });
     }
