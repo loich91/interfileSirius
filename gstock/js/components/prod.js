@@ -6,19 +6,19 @@
 const Prod = {
     template: `
     <div class="detail">
-    <h1> Détails du produit n° {{ $route.params.id }} </h1>
+    <h1> Détails du produit {{ prod.name_product }} </h1>
     <router-link to="/" id= back>Retour</router-link><br>
     
     <p v-if="prod">
     <h2>
      
-        Nom : {{ prod.name }} <br>
+        Nom : {{ prod.name_product }} <br>
     
         Description: {{prod.description}}<br>
         Quantité : {{ prod.quantity }}<br>
         
          Sales Price : {{ prod.sale_price }}<br>
-         Purchase Price:{{prod.purSchase_prise}}<br>
+         Purchase Price:{{prod.purschase_price}}<br>
         </h2>
     </p>
     </div>
@@ -26,7 +26,7 @@ const Prod = {
 data() {
     return {
         loading: true,
-        prod: null,
+        prod: {},
         error: null
     }
 },
@@ -43,15 +43,16 @@ methods: {
     
     fetchData() {
         const params = new URLSearchParams();
-        params.append('id', this.$route.params.id);
+        params.append('id_product', this.$route.params.id);
+        console.log(this.$route.params.id);
       
                     axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
                    // axios.post('http://localhost/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
                 {
-            // console.log(response);
+             console.log(response.data);
             this.loading = false;
             this.prod = response.data;
-            console.log(this.prod);
+            console.log(this.prod.name_product);
         });
     }
 }

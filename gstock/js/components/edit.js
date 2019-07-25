@@ -15,7 +15,7 @@ const Edit = {
         <input type="text" v-model="prod.ref"  ><br>
         Qty : 
         
-         <input type="text" v-model="prod.qty" ><br>
+         <input type="text" v-model="prod.quantity" ><br>
         €€€ : 
            
         <input type="text" v-model="prod.price" ><br>
@@ -55,7 +55,7 @@ const Edit = {
             const params = new URLSearchParams();
             params.append('id', this.$route.params.id);
 
-            axios.post('http://files.sirius-school.be/products-api/?action=getDetail', params).then(response => {
+            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php', params).then(response => {
                 // console.log(response);
                 this.loading = false;
                 this.prod = response.data.product;
@@ -67,11 +67,13 @@ const Edit = {
         updateProduct() {
             const params = new URLSearchParams();
 
-            params.append('ref', this.prod.ref);
-            params.append('name', this.prod.name);
-            params.append('qty', this.prod.qty);
-            params.append('price', this.prod.price);
-            params.append('id', this.$route.params.id);
+            params.append('category',this.id_category);
+            params.append('description', this.prod.description);
+            params.append('name', this.prod.name_product);
+            params.append('quantity', this.prod.quantity);
+            params.append('sale_price', this.prod.salesPrice);
+            params.append('purchase_price', this.prod.purchasePrice);
+
 
             axios.get('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
             //axios.get('http://localhost/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response => 
