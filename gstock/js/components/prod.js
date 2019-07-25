@@ -6,7 +6,7 @@
 const Prod = {
     template: `
     <div class="detail">
-    <h1> Détails du produit {{ prod.name_product }} </h1>
+    <h1> Détail du produit {{ prod.name_product }} </h1>
     <router-link to="/" id= back>Retour</router-link><br>
     
     <p v-if="prod">
@@ -17,8 +17,8 @@ const Prod = {
         Description: {{prod.description}}<br>
         Quantité : {{ prod.quantity }}<br>
         
-         Sales Price : {{ prod.sale_price }}<br>
-         Purchase Price:{{prod.purschase_price}}<br>
+         Prix de vente : {{ prod.sale_price }}<br>
+         Prix d achat:{{prod.purschase_price}}<br>
         </h2>
     </p>
     </div>
