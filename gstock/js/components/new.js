@@ -105,12 +105,13 @@ const New = {
                 console.log(response.data);
                 this.loading = false;
 
-                if (response.data.error =='false') {
-                    this.message = 'réussi';
+                if (response.data.error == false) {
+                    this.message = response.data.message;
                 }
                 else {
-                    this.message = 'ça merde';
+                    this.message = response.data.message;
                 }
+
 
                 //console.log(this.prod);//
                 //ajouter message comme pour la meteo //REPONSE API
