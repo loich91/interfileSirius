@@ -4,16 +4,13 @@
 const Edit = {
     template: `
     <div class="prod">
-    <h1> xxx Update your Product n° {{ $route.params.id }} xxx</h1>
-    <router-link to="/"id= back>Go Back to List</router-link><br>
+    <h1>  Modifier Produit n° {{ $route.params.id }}</h1>
+    <router-link to="/"id= back>retour</router-link><br>
     
 
-        IdProduit:<input type="text" v-model= "prod.id_product" ><br>
-        Name : 
+        Nom : 
         <input type="text"v-model="prod.name" ><br>
-        Ref. : 
-        <input type="text" v-model="prod.ref"  ><br>
-        Qty : 
+        Stock : 
         
          <input type="text" v-model="prod.quantity" ><br>
         €€€ : 
@@ -21,7 +18,7 @@ const Edit = {
         <input type="text" v-model="prod.price" ><br>
     <div>
    
-    <button v-on @click="updateProduct" id=modifbutton> UPDATE PRODUCT </button>
+    <button v-on @click="updateProduct" id=modifbutton> Modifier produit </button>
     {{message}}
 </div>
 

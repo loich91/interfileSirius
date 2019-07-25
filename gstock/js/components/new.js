@@ -4,32 +4,32 @@
 const New = {
     template: `
     <div class="prod">
-    <h1>xxx New Product {{ $route.params.id }} xxx</h1>
-    <router-link to="/"id= back>Go Back to List</router-link><br>
+    <h1>xxx Nouveau Produit {{ $route.params.id }} xxx</h1>
+    <router-link to="/"id= back>Retour</router-link><br>
 
     
-        Name : 
+        Nom : 
         <input v-model="prod.name_product" type="text" placeholder="Add Product Name  "><br>
     
 
         Description:
       
         <input v-model="prod.description" type="text" placeholder="Add description "><br>
-        Qty : 
+        Stock: 
         
          <input v-model="prod.quantity " type="text" placeholder="Add Product Qty "><br>
          
-         Category:
+         Categorie:
          <div>
          <select  v-model="id_category">
 
          <option v-for="categorie in categories" v-bind:value="categorie.id_category">{{categorie.name_category}}</option>
         </div>
         
-       sales Price  €€€ : 
+       Prix de vente: 
            
         <input v-model="prod.salesPrice" type="text" placeholder="Add sales Price "><br>
-        purchase Price  €€€ : 
+        Prix d'achat: 
         <input v-model="prod.purchasePrice" type="text" placeholder="Add purchase Price "><br>
        
 
@@ -41,7 +41,7 @@ const New = {
 
     <div>
    
-    <button v-on @click="insertProduct" id=button> SUBMIT NEW </button>
+    <button v-on @click="insertProduct" id=button> ajouter </button>
     {{message}}
 </div>
 
