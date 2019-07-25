@@ -15,7 +15,7 @@ const Edit = {
         <input type="text" v-model="prod.ref"  ><br>
         Qty : 
         
-         <input type="text" v-model="prod.qty" ><br>
+         <input type="text" v-model="prod.quantity" ><br>
         €€€ : 
            
         <input type="text" v-model="prod.price" ><br>
@@ -69,7 +69,7 @@ const Edit = {
 
             params.append('category',this.id_category);
             params.append('description', this.prod.description);
-            params.append('name', this.prod.name);
+            params.append('name', this.prod.name_product);
             params.append('quantity', this.prod.quantity);
             params.append('sale_price', this.prod.salesPrice);
             params.append('purchase_price', this.prod.purchasePrice);

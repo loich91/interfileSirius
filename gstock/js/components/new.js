@@ -9,7 +9,7 @@ const New = {
 
     
         Name : 
-        <input v-model="prod.name" type="text" placeholder="Add Product Name  "><br>
+        <input v-model="prod.name_product" type="text" placeholder="Add Product Name  "><br>
     
 
         Description:
@@ -95,13 +95,13 @@ const New = {
             const params = new URLSearchParams();
             params.append('category',this.id_category);
             params.append('description', this.prod.description);
-            params.append('name', this.prod.name);
+            params.append('name', this.prod.name_product);
             params.append('quantity', this.prod.quantity);
             params.append('sale_price', this.prod.salesPrice);
             params.append('purchase_price', this.prod.purchasePrice);
 
-            //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response =>
-            axios.post('http://localhost/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response => {
+            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response =>{
+            //axios.post('http://localhost/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response => {
                 console.log(response.data);
                 this.loading = false;
 
