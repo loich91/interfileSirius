@@ -1,24 +1,46 @@
 
 
-
 const Edit = {
     template: `
     <div class="prod">
-    <h1>  Modifier Produit n° {{ $route.params.id }}</h1>
-    <router-link to="/"id= back>retour</router-link><br>
+    <h1>xxx update {{ $route.params.id }} xxx</h1>
+    <router-link to="/"id= back>Go Back to List</router-link><br>
+
+    
+        Name : 
+        <input v-model="prod.name_product" type="text" placeholder="Add Product Name  "><br>
     
 
-        Nom : 
-        <input type="text"v-model="prod.name" ><br>
-        Stock : 
+        Description:
+      
+        <input v-model="prod.description" type="text" placeholder="Add description "><br>
+        Qty : 
         
-         <input type="text" v-model="prod.quantity" ><br>
-        €€€ : 
+         <input v-model="prod.quantity " type="text" placeholder="Add Product Qty "><br>
+         <div>
+         Category:
+        
+         <select  v-model="id_category">
+
+         <option v-for="categorie in categories" v-bind:value="categorie.id_category">{{categorie.name_category}}</option>
+        </div>
+        
+       sales Price  €€€ : 
            
-        <input type="text" v-model="prod.price" ><br>
+        <input v-model="prod.salesPrice" type="text" placeholder="Add sales Price "><br>
+        purchase Price  €€€ : 
+        <input v-model="prod.purchasePrice" type="text" placeholder="Add purchase Price "><br>
+       
+
+      
+   
+      
+
+
+
     <div>
    
-    <button v-on @click="updateProduct" id=modifbutton> Modifier produit </button>
+    <button v-on @click="update" id=button> SUBMIT NEW </button>
     {{message}}
 </div>
 
@@ -33,37 +55,46 @@ const Edit = {
             //{}= un objet
             message: '',
             id: null,
-            error: null
+            error: null,
+            categories:{},
+            id_category:null,
         }
     },
+
     created() {
         // fetch the data when the view is created and the data is
         // already being observed
-        this.fetchData();
-        this.updateProduct();
+        this.obtenir();
     },
 
     watch: {
         // call again the method if the route changes
-        '$route': 'fetchData'
+        '$route': 'insertProduct'
     },
     methods: {
-        fetchData() {
-            const params = new URLSearchParams();
-            params.append('id', this.$route.params.id);
 
-            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php', params).then(response => {
-                // console.log(response);
-                this.loading = false;
-                this.prod = response.data.product;
-                console.log(this.prod);
+        obtenir(){  
+
+            axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => {
+            //axios.get("http://localhost/travail2/git/gstock/back-end/pages/category.php").then(response => {
+                console.log(response.data);
+                this.categories=response.data;
+                // this.prods = response.data.products;
+                //remplacer le .products par ce que  Anthony&compagnie va nous renvoyer URL API//
+                // .products qu on recupere dans API de Ludo//
+
             });
+
+
 
         },
 
-        updateProduct() {
-            const params = new URLSearchParams();
+        update() {
 
+            console.log(this.$route.params.id)
+            console.log(this.id_category)
+            const params = new URLSearchParams();
+            params.append('category',this.$route.params.id);
             params.append('category',this.id_category);
             params.append('description', this.prod.description);
             params.append('name', this.prod.name_product);
@@ -71,18 +102,18 @@ const Edit = {
             params.append('sale_price', this.prod.salesPrice);
             params.append('purchase_price', this.prod.purchasePrice);
 
-
-            axios.get('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
-            //axios.get('http://localhost/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response => 
-                console.log(response);
+            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
+           
+                console.log(response.data);
                 this.loading = false;
 
-                if (response.data.status == 'success') {
-                    this.message = 'produit modifié';
+                if (response.data.error == false) {
+                    this.message = response.data.message;
                 }
                 else {
-                    this.message = 'Désolé impossible de modifier';
+                    this.message = response.data.message;
                 }
+
 
                 //console.log(this.prod);//
                 //ajouter message comme pour la meteo //REPONSE API
@@ -90,7 +121,3 @@ const Edit = {
         }
     }
 }
-
-
-
-
