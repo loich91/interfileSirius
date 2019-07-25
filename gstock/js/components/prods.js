@@ -5,6 +5,8 @@
 
 //modifier les boutons et liens en fonction de Jonatan 
  //<img src="images/image1.jpg" alt="ink venice">//
+
+ // <img class="logo" src="image/Logo.png">//
 const Prods = {
     template: `
 <div class="post">
@@ -20,8 +22,10 @@ const Prods = {
       {{ error }}
     </div>
         
+    <img class="logo"  src="images/Logo.png" alt="LogoGOGOGOGOGOGOGOGOGOGO">
+   
         <h1>Liste des produits</h1>
-    <table v-if="prods" id="prod">
+    <table class="bordtab" v-if="prods" id="prod">
         <tr class="table-product-header">
             <th>Dénomination</th>
             <th>Catégorie</th>
@@ -47,7 +51,6 @@ const Prods = {
     </table>
 
 
-            
      
    
   </div>

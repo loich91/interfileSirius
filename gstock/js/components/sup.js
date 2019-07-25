@@ -5,16 +5,15 @@ const Sup = {
     template: `
     <div class="prod">
    
-    <h1>xxx Delete Product n° {{ $route.params.id }} xxx</h1>
-    <router-link to="/"id= back>Go Back to List</router-link><br>
+    <h1> Supprimer Produit n° {{ $route.params.id }}</h1>
+    <router-link to="/"id= back>retour</router-link><br>
     
 
         IdProduit:<input type="text" v-model= "prod.id_product" ><br>
-        Name : 
+        Nom : 
         <input type="text"v-model="prod.name" ><br>
-        Ref. : 
-        <input type="text" v-model="prod.ref"  ><br>
-        Qty : 
+        
+        Stock: 
         
          <input type="text" v-model="prod.qty" ><br>
         €€€ : 
@@ -22,7 +21,7 @@ const Sup = {
         <input type="text" v-model="prod.price" ><br>
     <div>
    
-    <button v-on @click="deleteProduct" id="deletebutton"> Delete </button>
+    <button v-on @click="deleteProduct" id="deletebutton"> Supprimer </button>
     {{message}}
 </div>
 
