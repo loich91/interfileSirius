@@ -4,7 +4,7 @@
 const New = {
     template: `
     <div class="prod">
-    <h1>xxx Nouveau Produit {{ $route.params.id }} xxx</h1>
+    <h1> Nouveau Produit {{ $route.params.id }} </h1>
     <router-link to="/"id= back>Retour</router-link><br>
 
     
@@ -18,9 +18,9 @@ const New = {
         Stock: 
         
          <input v-model="prod.quantity " type="text" placeholder="Add Product Qty "><br>
-         
-         Categorie:
          <div>
+         Categorie:
+         
          <select  v-model="id_category">
 
          <option v-for="categorie in categories" v-bind:value="categorie.id_category">{{categorie.name_category}}</option>
