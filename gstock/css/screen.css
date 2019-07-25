@@ -10,7 +10,10 @@ body {
 }
 
 
+.logo{
+    width: 10%
 
+}
 
 
 
@@ -26,15 +29,26 @@ tr:nth-child(even){
     background-color: lightskyblue
 }
 
+.bordtab{
+
+    border-radius:15px;
+       
+}
+
+
+
 ul{
     padding-left: 25;
   
 }
 
 h1{ font-family: 'Calibri Bold', cursive;
-   color : black
+   color : black;
    
-   background: darkblue;
+ 
+  
+
+
  
 }
 #couleurLi{
