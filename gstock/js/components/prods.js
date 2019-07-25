@@ -32,10 +32,11 @@ const Prods = {
         </tr>
         <tr v-for="prod in prods" class="table-product-line">
             <td> <router-link :to="{ name: 'details', params: { id: prod.id_product }}" id=view>{{ prod.name_product }}</router-link></td>
-            <td>{{ prod.category }}</td>
-            <td>{{ prod.quantity }}</td>
+            <td>{{ prod.name_category }}</td>
+            <td>{{prod.purschase_price}}</td>
             <td>{{ prod.sale_price }}</td>
-            <td>{{prod.purschase_prise}}</td>
+            <td>{{ prod.quantity }}</td>
+
             
             <td>
  
