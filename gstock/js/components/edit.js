@@ -40,7 +40,7 @@ const Edit = {
 
     <div>
    
-    <button v-on @click="update" id=button> SUBMIT NEW </button>
+    <button v-on @click="update" id=button> modifier </button>
     {{message}}
 </div>
 
