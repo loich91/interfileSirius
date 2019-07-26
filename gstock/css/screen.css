@@ -97,7 +97,9 @@ header.header {
 
 .table-prod {
     margin: 0 auto;
+    width: 75%;
 }
+
 
 .table-prod tr:nth-child(even){
     background-color: #80d4ff;
