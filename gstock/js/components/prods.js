@@ -19,7 +19,7 @@ const Prods = {
       {{ error }}
     </div>
         
-        <h1>   <router-link to="/" id=menuprods > Liste des Produits</router-link></h1>
+        <h1>   <router-link to="/" class=menuprods > Liste des Produits</router-link></h1>
     <table class="bordtab" class="table-prod"  v-if="prods" id="prod">
         <tr class="table-product-header">
             <th>Dénomination</th>
