@@ -38,7 +38,7 @@ const Prods = {
             <td>{{ prod.sale_price }}</td>
             <td>{{ prod.quantity }}</td>
             <td>
-           
+            
               <router-link :to="{ name: 'edit', params: { id: prod.id_product }}"id=up>Modifier</router-link>
               <router-link :to="{ name: 'sup', params: { id: prod.id_product }}"id=del>Supprimer</router-link>
             </td>

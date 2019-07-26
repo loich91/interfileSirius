@@ -3,33 +3,33 @@
 const Edit = {
     template: `
     <div class="prod">
-    <h1>xxx update {{ $route.params.id }} xxx</h1>
-    <router-link to="/"id= back>Go Back to List</router-link><br>
+    <h1>Modifier{{ $route.params.id }}</h1>
+    <router-link to="/"id= back>retour</router-link><br>
 
     
-        Name : 
-        <input v-model="prod.name_product" type="text" placeholder="Add Product Name  "><br>
+        Nom : 
+        <input v-model="prod.name_product" type="text" placeholder="ajouter Nom "><br>
     
 
         Description:
       
-        <input v-model="prod.description" type="text" placeholder="Add description "><br>
-        Qty : 
+        <input v-model="prod.description" type="text" placeholder="ajouter Description"><br>
+        Stock: 
         
-         <input v-model="prod.quantity " type="text" placeholder="Add Product Qty "><br>
+         <input v-model="prod.quantity " type="text" placeholder="ajouter quantité "><br>
          <div>
-         Category:
+         Categorie:
         
          <select  v-model="id_category">
 
          <option v-for="categorie in categories" v-bind:value="categorie.id_category">{{categorie.name_category}}</option>
         </div>
         
-       sales Price  €€€ : 
+       Prix de vente: 
            
-        <input v-model="prod.salesPrice" type="text" placeholder="Add sales Price "><br>
-        purchase Price  €€€ : 
-        <input v-model="prod.purchasePrice" type="text" placeholder="Add purchase Price "><br>
+        <input v-model="prod.salesPrice" type="text" placeholder="ajouter prix de vente "><br>
+        Prix  d achat : 
+        <input v-model="prod.purchasePrice" type="text" placeholder="ajouter prix d achat "><br>
        
 
       
@@ -40,7 +40,7 @@ const Edit = {
 
     <div>
    
-    <button v-on @click="update" id=button> SUBMIT NEW </button>
+    <button v-on @click="update" id=button> Ajouter </button>
     {{message}}
 </div>
 
