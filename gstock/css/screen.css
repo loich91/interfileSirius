@@ -1,4 +1,5 @@
-/*main*/
+
+/* Balise générique */
 
 body {
 
@@ -9,79 +10,96 @@ body {
     font-size:15px;
 }
 
-header.header {
-    height: 96px;
-    width: 1440px;
-    background-color:black
-  }
-h1{ font-family: 'Calibri Bold', cursive;
+h1{ 
+    font-family: 'Calibri Bold', cursive;
     color: white;
     text-align: center;
     margin:100px
-    
- }
+}
+
+h2{
+    color : rgb(240, 230, 230);
+    background: lightblue;  
+}
+
+ul{
+    padding-left: 25;  
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+ /* layout */
+
+
+header.header {
+    height: 96px;
+    width: 100%;
+    background-color:black
+  }
+
 
 .logo{
     margin-left:100px;
     width: 10%
     
 }
+
+.footer {
+    height: 88px;
+    width: 100%;
+    background-color:black
+  }
+
+  .background-footer {
+
+    width: 100%;
+    background-color: #000;
+  }
+
+
+/* button de gestion */
+
+.button-plus {
+
+}
+
+.button-add {
+
+}
+
+.button-delete {
+
+}
+
+
+
 .plus{
     width:3%;
     padding: 7px;
     color:white;
 }
+
+
+
+/* tableau de gestion */
 .table-product-header {
-    background: c6c9ca;
+    background: #c6c9ca;
 }
 
 .table-product-line {
     background: white;
 }
 
-tr:nth-child(even){
-    background-color:80d4ff;
+.table-prod {
+    margin: 0 auto;
 }
 
-.bordtab{
-
-    border-radius:15px;
-       
+.table-prod tr:nth-child(even){
+    background-color: #80d4ff;
 }
-
-ul{
-    padding-left: 25;
-  
-
-   
-}
-#back{
-    color:red;
-   
-}
-
-#view{
-    color : black;
-   
-}
-#up{
-    color : black
- 
-}
-#del{
-    color :black
-}
-
-h2{color : rgb(240, 230, 230);
-   
-    background: lightblue;
-  
- }
- #menuprods{
-    font-size: 120%;
-     color:white
-     
- }
 
  a.menunew{
     color:white;
@@ -89,8 +107,3 @@ h2{color : rgb(240, 230, 230);
     text-align: center;
 
  }
-
- img{
-    width: 100%;
-    height: auto;
-}
