@@ -9,19 +9,14 @@ const Sup = {
     <router-link to="/"id= back>retour</router-link><br>
     
 
-        IdProduit:<input type="text" v-model= "prod.id_product" ><br>
+        IdProduit:
+        <h1 type="text" v-model= "prod.id_product">{{prod.id_product}} </h1><br>
         Nom : 
-        <input type="text"v-model="prod.name" ><br>
-        
-        Stock: 
-        
-         <input type="text" v-model="prod.qty" ><br>
-        €€€ : 
-           
-        <input type="text" v-model="prod.price" ><br>
-    <div>
+        <h1 type="text"v-model="prod.name_product" >{{prod.name_product}} </h1><br>
+   
    
     <button v-on @click="deleteProduct" id="deletebutton"> Supprimer </button>
+  
     {{message}}
 </div>
 
@@ -43,7 +38,7 @@ const Sup = {
         // fetch the data when the view is created and the data is
         // already being observed
         this.fetchData();
-        this.deleteProduct();
+        
     },
 
     watch: {
@@ -51,14 +46,19 @@ const Sup = {
         '$route':'fetchData'
     },
     methods: {
+
+        
+    
+
+           
         fetchData() {
             const params = new URLSearchParams();
-            params.append('id', this.$route.params.id);
+            params.append('id_product', this.$route.params.id);
           
-            axios.post('http://files.sirius-school.be/products-api/?action=getDetail',params).then(response => {
+            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php',params).then(response => {
                 // console.log(response);
                 this.loading = false;
-                this.prod = response.data.product;
+                this.prod = response.data;
                 console.log(this.prod);
             });
 
@@ -67,23 +67,20 @@ const Sup = {
         deleteProduct() {
             const params = new URLSearchParams();
 
-            params.append('ref', this.prod.ref);
-            params.append('name', this.prod.name);
-            params.append('qty', this.prod.qty);
-            params.append('price', this.prod.price);
-            params.append('id', this.$route.params.id);
+            params.append('id_product', this.$route.params.id);
 
-            axios.post('http://files.sirius-school.be/products-api/?action=deleteProduct',params).then(response => {
-                console.log(response);
+            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/delete_product.php',params).then(response => {
+                console.log(response.data);
                 this.loading = false;
 
-                if (response.data.status == 'success') {
-                    this.message = 'produit supprimé';
+                if (response.data.error == false) {
+                    this.message = response.data.message;
+                    
+                    router.push({ name: 'produits' })
                 }
                 else {
-                    this.message = 'Désolé impossible de modifier';
+                    this.message = response.data.message;
                 }
-
                 //console.log(this.prod);//
                 //ajouter message comme pour la meteo //REPONSE API
             });
