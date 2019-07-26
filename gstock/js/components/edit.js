@@ -7,30 +7,30 @@ const Edit = {
     <router-link to="/"id= back>Go Back to List</router-link><br>
 
     
-        Name : 
-        <input v-model="prod.name_product" type="text" placeholder="Add Product Name  "><br>
+    Nom : 
+    <input v-model="prod.name_product" type="text" placeholder="ajouter nom produit  "><br>
+
+
+    Description:
+  
+    <input v-model="prod.description" type="text" placeholder="ajouter description"><br>
+    Stock: 
     
+     <input v-model="prod.quantity " type="text" placeholder="ajouter quantité "><br>
+     <div>
+     Categorie:
+     
+     <select  v-model="id_category">
 
-        Description:
-      
-        <input v-model="prod.description" type="text" placeholder="Add description "><br>
-        Qty : 
-        
-         <input v-model="prod.quantity " type="text" placeholder="Add Product Qty "><br>
-         <div>
-         Category:
-        
-         <select  v-model="id_category">
-
-         <option v-for="categorie in categories" v-bind:value="categorie.id_category">{{categorie.name_category}}</option>
-        </div>
-        
-       sales Price  €€€ : 
-           
-        <input v-model="prod.salesPrice" type="text" placeholder="Add sales Price "><br>
-        purchase Price  €€€ : 
-        <input v-model="prod.purchasePrice" type="text" placeholder="Add purchase Price "><br>
+     <option v-for="categorie in categories" v-bind:value="categorie.id_category">{{categorie.name_category}}</option>
+    </div>
+    
+   Prix de vente: 
        
+    <input v-model="prod.salesPrice" type="text" placeholder="ajouter prix de vente "><br>
+    Prix d'achat: 
+    <input v-model="prod.purchasePrice" type="text" placeholder="ajouter prix d achat"><br>
+
 
       
    
