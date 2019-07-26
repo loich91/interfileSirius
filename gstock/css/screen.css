@@ -8,6 +8,12 @@ body {
     background-color: #424a4e;
     font-size:15px;
 }
+
+header.header {
+    height: 96px;
+    width: 1440px;
+    background-color:black
+  }
 h1{ font-family: 'Calibri Bold', cursive;
     color: white;
     text-align: center;
