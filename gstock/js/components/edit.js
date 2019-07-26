@@ -4,7 +4,7 @@ const Edit = {
     template: `
     <div class="prod">
     <h1> modification {{ $route.params.id }} </h1>
-    <router-link to="/"id= back>Go Back to List</router-link><br>
+    <router-link to="/"id= back>retour</router-link><br>
 
     
     Nom : 
