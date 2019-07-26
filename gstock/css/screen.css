@@ -1,24 +1,32 @@
 /*main*/
 
 body {
+
     font-family: calibri, bold;
     margin: 25;
     padding: 25;
-    background-color: #424a4e
-    /*background-image:url('images/image1.jpg');*/
-    
+    background-color: #424a4e;
+    font-size:15px;
 }
-
+h1{ font-family: 'Calibri Bold', cursive;
+    color: white;
+    text-align: center;
+    margin:100px
+    
+ }
 
 .logo{
+    margin-left:100px;
     width: 10%
-
+    
 }
-
-
-
+.plus{
+    width:3%;
+    padding: 7px;
+    color:white;
+}
 .table-product-header {
-    background: lightgrey;
+    background: c6c9ca;
 }
 
 .table-product-line {
@@ -26,7 +34,7 @@ body {
 }
 
 tr:nth-child(even){
-    background-color: lightskyblue
+    background-color:80d4ff;
 }
 
 .bordtab{
@@ -35,30 +43,9 @@ tr:nth-child(even){
        
 }
 
-
-
 ul{
     padding-left: 25;
   
-}
-
-h1{ font-family: 'Calibri Bold', cursive;
-   color : black;
-   
- 
-  
-
-
- 
-}
-#couleurLi{
-    font-size: 150%;
-    color: darkolivegreen;
-  
-    background-color: rgb(192, 138, 150);
- 
-
-    font-weight: bold;
 
    
 }
@@ -78,25 +65,7 @@ h1{ font-family: 'Calibri Bold', cursive;
 #del{
     color :black
 }
-#button{
-    font-weight: bold;
-    color:darkolivegreen;
-    background-color:aquamarine
 
-}
-#modifbutton{
-    font-weight: bold;
-    color:darkolivegreen;
-    background-color:aquamarine
-
-
-}
-#deletebutton{
-    font-weight: bold;
-    color:darkolivegreen;
-    background-color:aquamarine
-
-}
 h2{color : rgb(240, 230, 230);
    
     background: lightblue;
@@ -106,16 +75,16 @@ h2{color : rgb(240, 230, 230);
     font-size: 120%;
      color:white
      
+ }
+
+ a.menunew{
+    color:white;
+    float:right;
+    text-align: center;
 
  }
 
- #menunew{
-    color:white
-
- }
  img{
-   
-padding: 50px;
-     width: 50%
- }
-
+    width: 100%;
+    height: auto;
+}

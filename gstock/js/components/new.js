@@ -5,19 +5,23 @@ const New = {
     template: `
     <div class="prod">
     <h1> Nouveau Produit {{ $route.params.id }} </h1>
+    <br>
     <router-link to="/"id= back>Retour</router-link><br>
-
+    <br>
+    <br>
+    <br>
+    <br>
     
         Nom : 
-        <input v-model="prod.name_product" type="text" placeholder="Add Product Name  "><br>
+        <input v-model="prod.name_product" type="text" placeholder="ajouter nom produit  "><br>
     
 
         Description:
       
-        <input v-model="prod.description" type="text" placeholder="Add description "><br>
+        <input v-model="prod.description" type="text" placeholder="ajouter description"><br>
         Stock: 
         
-         <input v-model="prod.quantity " type="text" placeholder="Add Product Qty "><br>
+         <input v-model="prod.quantity " type="text" placeholder="ajouter quantité "><br>
          <div>
          Categorie:
          
@@ -28,10 +32,10 @@ const New = {
         
        Prix de vente: 
            
-        <input v-model="prod.salesPrice" type="text" placeholder="Add sales Price "><br>
+        <input v-model="prod.salesPrice" type="text" placeholder="ajouter prix de vente "><br>
         Prix d'achat: 
-        <input v-model="prod.purchasePrice" type="text" placeholder="Add purchase Price "><br>
-       
+        <input v-model="prod.purchasePrice" type="text" placeholder="ajouter prix d achat"><br>
+    
 
       
    

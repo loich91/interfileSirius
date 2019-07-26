@@ -1,47 +1,51 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="css/screen.css" type="text/css">
-        <title>//Produits</title>
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/screen.css" type="text/css">
+    <title>//Produits</title>
+</head>
+
+<body>
+    <div class="container">
         <div id="app">
-            
-            <router-link to="/" id=menuprods> Liste des Produits</router-link>
-     <br>
-     <br>
-            <router-link to="/new"id="menunew"> Nouveau produit </router-link>
+            <img class="logo" src="images/Logo.png" alt="LogoGOGOGOGOGOGOGOGOGOGO"><br>
+            <router-link to="/" id=menuprods> </router-link>
+            <br>
+            <br>
+
+          <router-link to="/new"class="menunew"><img class="plus"  src="images/plus.png"
+                 alt="boutton plus"> Nouveau produit </router-link>
            <!--  <router-link to="/edit">Update</router-link>-->
             <!--  <router-link to="/sup">Delete</router-link>-->
-            
-            
+
+
             <router-view></router-view>
         </div>
 
-        
+
         <!-- include vue -->
         <script src="js/libs/vue.min.js"></script>
-        
+
         <!-- vue rooter -->
         <script src="js/libs/vue-router.min.js"></script>
-        
+
         <!-- axios -->
         <script src="js/libs/axios.min.js"></script>
-        
+
         <!-- components prods= liste produits prod=detail produit -->
         <script src="js/components/prods.js"></script>
         <script src="js/components/prod.js"></script>
         <script src="js/components/new.js"></script>
         <script src="js/components/edit.js"></script>
         <script src="js/components/sup.js"></script>
-        
-     
-        
-        <!-- main -->
-        <script src="js/main.js"></script>
 
-    </body>
+
+    </div>
+    <!-- main -->
+    <script src="js/main.js"></script>
+
+</body>
+
 </html>

@@ -10,9 +10,6 @@
 const Prods = {
     template: `
 <div class="post">
-
-   
-
   
   <div v-if="loading" class="loading">
       Loading...
@@ -22,9 +19,7 @@ const Prods = {
       {{ error }}
     </div>
         
-    <img class="logo"  src="images/Logo.png" alt="LogoGOGOGOGOGOGOGOGOGOGO">
-   
-        <h1>Liste des produits</h1>
+        <h1>   <router-link to="/" id=menuprods> Liste des Produits</router-link></h1>
     <table class="bordtab" v-if="prods" id="prod">
         <tr class="table-product-header">
             <th>Dénomination</th>
@@ -33,6 +28,8 @@ const Prods = {
             <th>Prix de vente</th>
             <th>Stock</th>
             <th></th>
+            <th></th>
+
         </tr>
         <tr v-for="prod in prods" class="table-product-line">
             <td> <router-link :to="{ name: 'details', params: { id: prod.id_product }}" id=view>{{ prod.name_product }}</router-link></td>
@@ -40,19 +37,15 @@ const Prods = {
             <td>{{prod.purschase_price}}</td>
             <td>{{ prod.sale_price }}</td>
             <td>{{ prod.quantity }}</td>
-
-            
             <td>
- 
+            <button v-on @click=" update" id=button> Modifier</button>
+            <button v-on @click=" DeleteProduct" id=button>  </button>
               <router-link :to="{ name: 'edit', params: { id: prod.id_product }}"id=up>Modifier</router-link>
               <router-link :to="{ name: 'sup', params: { id: prod.id_product }}"id=del>Supprimer</router-link>
             </td>
         </tr>
     </table>
 
-
-     
-   
   </div>
 `,
 
