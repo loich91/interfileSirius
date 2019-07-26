@@ -94,7 +94,7 @@ const Edit = {
             console.log(this.$route.params.id)
             console.log(this.id_category)
             const params = new URLSearchParams();
-            params.append('category',this.$route.params.id);
+            params.append('id_product',this.$route.params.id);
             params.append('category',this.id_category);
             params.append('description', this.prod.description);
             params.append('name', this.prod.name_product);
