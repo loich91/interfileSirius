@@ -3,33 +3,33 @@
 const Edit = {
     template: `
     <div class="prod">
-    <h1>Modifier{{ $route.params.id }}</h1>
-    <router-link to="/"id= back>retour</router-link><br>
+    <h1>xxx update {{ $route.params.id }} xxx</h1>
+    <router-link to="/"id= back>Go Back to List</router-link><br>
 
     
-        Nom : 
-        <input v-model="prod.name_product" type="text" placeholder={{prod.name_product}}><br>
+        Name : 
+        <input v-model="prod.name_product" type="text" placeholder="Add Product Name  "><br>
     
 
         Description:
       
-        <input v-model="prod.description" type="text" placeholder={{prod.description}}><br>
-        Stock: 
+        <input v-model="prod.description" type="text" placeholder="Add description "><br>
+        Qty : 
         
-         <input v-model="prod.quantity " type="text" placeholder={{prod.quantity}}><br>
+         <input v-model="prod.quantity " type="text" placeholder="Add Product Qty "><br>
          <div>
-         Categorie:
+         Category:
         
          <select  v-model="id_category">
 
          <option v-for="categorie in categories" v-bind:value="categorie.id_category">{{categorie.name_category}}</option>
         </div>
         
-       Prix de vente: 
+       sales Price  €€€ : 
            
-        <input v-model="prod.sale_price" type="text" placeholder={{prod.sale_price}}><br>
-        Prix  d achat : 
-        <input v-model="prod.purschase_price" type="text" placeholder={{prod.purschase_price}}><br>
+        <input v-model="prod.salesPrice" type="text" placeholder="Add sales Price "><br>
+        purchase Price  €€€ : 
+        <input v-model="prod.purchasePrice" type="text" placeholder="Add purchase Price "><br>
        
 
       
@@ -40,7 +40,7 @@ const Edit = {
 
     <div>
    
-    <button v-on @click="update" id=button> Ajouter </button>
+    <button v-on @click="update" id=button> SUBMIT NEW </button>
     {{message}}
 </div>
 
@@ -65,7 +65,6 @@ const Edit = {
         // fetch the data when the view is created and the data is
         // already being observed
         this.obtenir();
-        this.fetchData();
     },
 
     watch: {
@@ -73,21 +72,6 @@ const Edit = {
         '$route': 'insertProduct'
     },
     methods: {
-
-        fetchData() {
-            const params = new URLSearchParams();
-            params.append('id_product', this.$route.params.id);
-            console.log(this.$route.params.id);
-          
-                        axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
-                       // axios.post('http://localhost/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
-                    {
-                 console.log(response.data);
-                this.loading = false;
-                this.prod = response.data;
-                console.log(this.prod.purchase_price);
-            });
-        },
 
         obtenir(){  
 
@@ -115,8 +99,8 @@ const Edit = {
             params.append('description', this.prod.description);
             params.append('name', this.prod.name_product);
             params.append('quantity', this.prod.quantity);
-            params.append('sale_price', this.prod.sale_price);
-            params.append('purschase_price', this.prod.purschase_price);
+            params.append('sale_price', this.prod.salesPrice);
+            params.append('purchase_price', this.prod.purchasePrice);
 
             axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
            
