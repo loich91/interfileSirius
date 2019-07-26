@@ -3,7 +3,7 @@
 const Edit = {
     template: `
     <div class="prod">
-    <h1>xxx update {{ $route.params.id }} xxx</h1>
+    <h1> modification {{ $route.params.id }} </h1>
     <router-link to="/"id= back>Go Back to List</router-link><br>
 
     
