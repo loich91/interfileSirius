@@ -68,8 +68,8 @@ const Prods = {
     methods: {
         
         fetchData() {
-                axios.get('http://192.168.1.46/travail2/git/gstock/back-end/index.php').then(response =>{
-                //axios.get('http://localhost/travail2/git/gstock/back-end/index.php').then(response => {
+                //axios.get('http://192.168.1.46/travail2/git/gstock/back-end/index.php').then(response =>{
+                axios.get('http://automatons.be/projet/travail2/git/gstock/back-end/index.php').then(response => {
                 console.log(response.data);
                 this.loading = false;
                 this.prods = response.data;

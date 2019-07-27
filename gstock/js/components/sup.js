@@ -55,8 +55,9 @@ const Sup = {
             const params = new URLSearchParams();
             params.append('id_product', this.$route.params.id);
           
-            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php',params).then(response => {
-                // console.log(response);
+            //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php',params).then(response => {
+            axios.post('http://automatons.be/projet/travail2/git/gstock/back-end/pages/detail.php',params).then(response => {
+            // console.log(response);
                 this.loading = false;
                 this.prod = response.data;
                 console.log(this.prod);
@@ -68,8 +69,8 @@ const Sup = {
             const params = new URLSearchParams();
 
             params.append('id_product', this.$route.params.id);
-
-            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/delete_product.php',params).then(response => {
+            //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/delete_product.php',params).then(response => {
+            axios.post('http://automatons.be/projet/travail2/git/gstock/back-end/pages/delete_product.php',params).then(response => {
                 console.log(response.data);
                 this.loading = false;
 
