@@ -102,7 +102,11 @@ const Edit = {
             params.append('sale_price', this.prod.salesPrice);
             params.append('purchase_price', this.prod.purchasePrice);
 
-            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
+           
+         //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
+        axios.post('http://automatons.be/projet/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
+
+    
            
                 console.log(response.data);
                 this.loading = false;

@@ -81,6 +81,7 @@ const New = {
         obtenir(){  
 
             //axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => {
+                //axios.get("http://localhost/travail2/git/gstock/back-end/pages/category.php").then(response => {
             axios.get("http://automatons.be/projet/travail2/git/gstock/back-end/pages/category.php").then(response => {
                 console.log(response.data);
                 this.categories=response.data;
@@ -104,9 +105,9 @@ const New = {
             params.append('sale_price', this.prod.salesPrice);
             params.append('purchase_price', this.prod.purchasePrice);
 
-            axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response =>{
-            //axios.post('http://localhost/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response => {
-                console.log(response.data);
+            //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response =>{
+                axios.post('http://automatons.be/projet/travail2/git/gstock/back-end/pages/create_product_V3.php', params).then(response =>{
+                    console.log(response.data);
                 this.loading = false;
 
                 if (response.data.error == false) {
