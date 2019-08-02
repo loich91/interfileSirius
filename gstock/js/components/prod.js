@@ -47,7 +47,7 @@ methods: {
         console.log(this.$route.params.id);
       
                     //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
-                    axios.post('http://automatons.be/projet/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
+                    axios.post('localhost/travail2/git/gstock/back-end/pages/detail.php', params).then(response =>
                 {
              console.log(response.data);
             this.loading = false;

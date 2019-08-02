@@ -76,7 +76,7 @@ const Edit = {
         obtenir(){  
 
             //axios.get("http://192.168.1.46/travail2/git/gstock/back-end/pages/category.php").then(response => {
-            axios.get("http://automatons.be/projet/travail2/git/gstock/back-end/pages/category.php").then(response => {
+            axios.get("locahost/travail2/git/gstock/back-end/pages/category.php").then(response => {
                 console.log(response.data);
                 this.categories=response.data;
                 // this.prods = response.data.products;
@@ -104,7 +104,7 @@ const Edit = {
 
            
          //axios.post('http://192.168.1.46/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
-        axios.post('http://automatons.be/projet/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
+        axios.post('localhost/travail2/git/gstock/back-end/pages/update_productV2.php', params).then(response =>{
 
     
            
